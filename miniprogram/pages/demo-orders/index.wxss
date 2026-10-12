@@ -1,0 +1,2 @@
+.order-title{margin:18rpx 0}.order-id{font-size:22rpx}
+.status-filters{display:flex;flex-wrap:wrap;gap:12rpx;margin-top:20rpx}.status-filters .chosen{background:#e8dcc6;color:#8e642d}

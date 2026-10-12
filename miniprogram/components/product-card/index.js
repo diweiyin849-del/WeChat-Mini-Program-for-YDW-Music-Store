@@ -1,0 +1,1 @@
+Component({properties:{product:{type:Object,value:{}}},data:{imageFailed:false},methods:{open(){this.triggerEvent('open',{id:this.data.product.id});},imageError(){this.setData({imageFailed:true});}}});

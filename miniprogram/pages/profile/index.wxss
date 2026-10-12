@@ -1,0 +1,2 @@
+.profile-banner{display:flex;gap:24rpx;align-items:center;padding:20rpx 0 30rpx}.avatar{width:100rpx;height:100rpx;background:#e8dcc6;border-radius:30rpx;text-align:center;line-height:100rpx;font-size:49rpx;color:#8c6834}.profile-banner .title{font-size:38rpx}.menu{padding:0 28rpx}.menu-item{display:flex;justify-content:space-between;padding:28rpx 0;border-bottom:1rpx solid #ede5d8}.menu-item:last-child{border:none}.menu-item text:last-child{color:#9e9079}.privacy-text{margin-top:20rpx;color:#817869;font-size:25rpx;line-height:1.9}
+.avatar{font-size:30rpx}

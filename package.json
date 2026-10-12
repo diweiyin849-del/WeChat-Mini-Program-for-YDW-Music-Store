@@ -1,0 +1,15 @@
+{
+  "name": "heqisheng-preview",
+  "version": "1.0.0",
+  "private": true,
+  "description": "YDW琴行购物流程预览版",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check-project.js",
+    "package:cloud": "node scripts/package-cloud.js",
+    "check:cloud": "node scripts/check-cloud-config.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

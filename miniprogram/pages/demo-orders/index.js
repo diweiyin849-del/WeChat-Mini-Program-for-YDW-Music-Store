@@ -1,0 +1,7 @@
+const {services,money,load}=require('../../utils/ui');
+const labels={pending:'待付款',paid:'已模拟付款',shipped:'已模拟发货',completed:'已完成',cancelled:'已取消'};
+Page({data:{items:[],query:'',status:'all',statuses:[{value:'all',label:'全部'},{value:'pending',label:'待付款'},{value:'paid',label:'已付款'},{value:'shipped',label:'已发货'},{value:'completed',label:'已完成'},{value:'cancelled',label:'已取消'}],admin:false,loading:false,error:''},onLoad(o){this.active=true;this.adminRequested=o.admin==='1';},onUnload(){this.active=false;this.loadSequence=(this.loadSequence||0)+1;},onShow(){return this.refresh();},
+ inputQuery(e){this.setData({query:e.detail.value});return this.refresh();},selectStatus(e){this.setData({status:e.currentTarget.dataset.value});return this.refresh();},resetFilters(){this.setData({query:'',status:'all'});return this.refresh();},
+ refresh(){return load(this,async current=>{if(getApp().globalData.mode!=='demo')throw Error('模拟订单仅在演示模式可用');if(this.adminRequested){const a=await services().catalog.getAdminAccess();if(!a.allowed||!a.demo)throw Error('仅演示管理员可管理模拟订单');}const items=await services().orders.list({admin:this.adminRequested,query:this.data.query,status:this.data.status});if(current()&&this.active!==false)this.setData({admin:this.adminRequested,items:items.map(o=>({...o,statusText:labels[o.status],totalText:money(o.totalFen)}))});});},
+ open(e){wx.navigateTo({url:'/pages/demo-order/index?id='+encodeURIComponent(e.currentTarget.dataset.id)+(this.data.admin?'&admin=1':'')});}
+});

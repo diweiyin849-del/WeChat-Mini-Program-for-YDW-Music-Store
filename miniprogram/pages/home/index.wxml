@@ -1,0 +1,11 @@
+<view class="page">
+ <view class="brand-row"><view><view class="brand">YDW琴行</view><view class="brand-en">YDW · MUSIC</view></view><text class="location">美国 · 纽约</text></view>
+ <view class="hero"><view class="hero-copy"><text class="eyebrow">让热爱，自有回响</text><view class="hero-title">让音乐<view>走进生活</view></view><view class="hero-sub">寻一件好乐器，开启你的音乐旅程</view><button class="hero-btn" bindtap="browse">探索乐器 →</button></view><view class="hero-circle"></view><view class="keyboard"><view class="key" wx:for="{{keys}}" wx:key="*this"><view wx:if="{{item !== 3 && item !== 7}}" class="black-key"></view></view></view><text class="hero-note">♪</text></view>
+ <view class="benefits"><text>八大乐器品类</text><text>纽约市内配送</text><text>支持到店自提</text></view>
+ <view class="notice" wx:if="{{demo}}">演示商品与价格，仅供购物流程预览</view>
+ <view wx:if="{{error}}" class="error">{{error}}<button class="spaced" bindtap="refresh">重新加载</button></view>
+ <view wx:if="{{loading}}" class="loading">正在寻找好乐器…</view>
+ <view class="section"><view class="row"><text class="section-title">找到你的乐器</text><text class="muted">从兴趣开始</text></view><view class="category-grid"><view class="category" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="chooseCategory"><image wx:if="{{item.image}}" class="category-picture" src="{{item.image}}" mode="aspectFit"/><view wx:else class="category-icon">♫</view><text>{{item.name}}</text><text class="category-count">{{item.modelCount}} 款 · {{item.stockCount}} {{item.unit}}</text></view></view></view>
+ <view class="section"><view class="row"><view><view class="section-title">精选乐器</view><view class="subtitle">每一份热爱，都值得好声音</view></view><text class="link" bindtap="browse">查看全部 →</text></view><view class="grid"><product-card wx:for="{{products}}" wx:key="id" product="{{item}}" bind:open="openProduct"/></view><view wx:if="{{!loading && !products.length}}" class="empty">暂无精选商品</view></view>
+ <view class="store-note"><text class="store-note-title">从选琴到练习，一路相伴</text><text>电话：{{shop.phone || '待填写'}}</text><text>营业时间：{{shop.hours || '待填写'}}</text><text>地址：{{shop.address || '待填写'}}</text><text wx:if="{{demo}}">演示门店资料，正式使用前请替换</text><button class="secondary spaced" bindtap="call">联系琴行 · 预约到店试琴</button><text>购物演示，不会真实扣款；模拟订单仅本机保存</text></view>
+</view>

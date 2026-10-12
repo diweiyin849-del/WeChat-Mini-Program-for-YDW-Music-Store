@@ -1,0 +1,32 @@
+# Node dependencies
+node_modules/
+
+# Generated cloud copies: npm run package:cloud
+/cloudfunctions/store/domain/
+/cloudfunctions/store/server/
+
+# WeChat local and account-specific settings
+project.private.config.json
+
+# Credentials and local environments
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local deliveries, agent records and generated logs
+/deliveries/
+/docs/superpowers/
+.superpowers/
+.codex/
+*.log
+coverage/
+
+# Editor / operating system metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

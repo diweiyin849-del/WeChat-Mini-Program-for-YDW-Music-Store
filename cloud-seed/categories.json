@@ -1,0 +1,8 @@
+{"_id":"piano","id":"piano","name":"钢琴","sort":0}
+{"_id":"digital-piano","id":"digital-piano","name":"电钢琴","sort":1}
+{"_id":"guitar","id":"guitar","name":"吉他","sort":2}
+{"_id":"guzheng","id":"guzheng","name":"古筝","sort":3}
+{"_id":"violin","id":"violin","name":"小提琴","sort":4}
+{"_id":"flute","id":"flute","name":"笛子","sort":5}
+{"_id":"erhu","id":"erhu","name":"二胡","sort":6}
+{"_id":"drums","id":"drums","name":"电子鼓","sort":7}

@@ -1,0 +1,18 @@
+<view class="page">
+ <view class="title">{{admin ? '商家试琴预约管理' : '我的试琴预约'}}</view>
+ <view class="notice">{{demo ? '本机演示预约，不会发送给琴行。' : '预约意向以琴行确认为准。'}}日期及时间按纽约当地时间。</view>
+ <view class="muted spaced">{{reminderConfig.enabled ? '可自愿开启确认提醒。琴行确认后尝试发送一次微信通知；不包含到店前定时提醒。' : reminderConfig.reason}}</view>
+ <view wx:if="{{error}}" class="error">{{error}}<button bindtap="refresh">重试</button></view>
+ <view wx:if="{{loading}}" class="loading">正在读取预约…</view>
+ <block wx:if="{{allowed}}">
+  <view wx:for="{{items}}" wx:key="id" class="card">
+   <view class="row"><text class="section-title">{{item.productTitle}}</text><text class="pill">{{item.statusLabel}}</text></view>
+   <view class="muted spaced">{{item.productModel}} · {{item.skuLabel}}</view><view class="spaced">{{item.date}} {{item.time}}</view>
+   <view class="muted spaced">联系人：{{item.contact}} · {{item.phone}}</view><view wx:if="{{item.note}}" class="muted spaced break">备注：{{item.note}}</view>
+   <view class="muted spaced">确认提醒：{{item.reminderLabel}}</view>
+   <button wx:if="{{!admin && item.canEnableReminder}}" class="secondary spaced" data-id="{{item.id}}" bindtap="enableReminder" loading="{{subscribingId === item.id}}" disabled="{{!!subscribingId || !reminderConfig.enabled || demo}}">{{item.confirmationReminder ? '重新开启确认提醒' : '开启确认提醒'}}</button>
+   <view class="actions"><button wx:if="{{admin && item.status === 'pending'}}" class="primary" data-id="{{item.id}}" data-status="confirmed" bindtap="status">确认预约</button><button wx:if="{{admin && item.status === 'confirmed'}}" class="primary" data-id="{{item.id}}" data-status="completed" bindtap="status">标记完成</button><button wx:if="{{item.canCancel}}" data-id="{{item.id}}" bindtap="cancel">取消预约</button></view>
+  </view>
+  <view wx:if="{{!loading && !items.length}}" class="empty">暂无试琴预约</view>
+ </block>
+</view>

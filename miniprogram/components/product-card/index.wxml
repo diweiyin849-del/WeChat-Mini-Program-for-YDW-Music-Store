@@ -1,0 +1,8 @@
+<view class="product" bindtap="open">
+ <view class="cover cover-{{product.categoryId}}">
+  <image wx:if="{{product.image && !imageFailed}}" src="{{product.image}}" mode="aspectFill" binderror="imageError" />
+  <view wx:else class="art"><text class="music">♪</text><text class="art-label">乐器展示占位</text></view>
+  <text class="tag" wx:if="{{product.soldOut}}">暂时售罄</text>
+ </view>
+ <view class="info"><text class="name">{{product.title}}</text><text class="model">{{product.model}} · 库存 {{product.stockCount}} 件</text><view class="price">¥{{product.priceText}}<text class="from">起</text></view></view>
+</view>

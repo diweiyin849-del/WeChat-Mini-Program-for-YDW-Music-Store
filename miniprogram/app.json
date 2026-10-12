@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/categories/index",
+    "pages/cart/index",
+    "pages/profile/index",
+    "pages/product/index",
+    "pages/checkout/index",
+    "pages/addresses/index",
+    "pages/admin/index",
+    "pages/saved/index",
+    "pages/appointment/index",
+    "pages/appointments/index",
+    "pages/care/index",
+    "pages/demo-payment/index",
+    "pages/demo-orders/index",
+    "pages/demo-order/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "YDW琴行",
+    "navigationBarBackgroundColor": "#f7f3ed",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f3ed"
+  },
+  "tabBar": {
+    "color": "#89857b",
+    "selectedColor": "#8e642d",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/categories/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

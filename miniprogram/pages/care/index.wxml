@@ -1,0 +1,12 @@
+<view class="page">
+ <view class="title">{{guide ? guide.title + '养护指南' : '乐器养护指南'}}</view>
+ <view class="subtitle care-intro">让喜爱的乐器，陪你更久。</view>
+ <view class="notice">通用日常建议，具体操作以你的乐器说明书为准。维修、保修及收费请向琴行确认。</view>
+ <view wx:if="{{error}}" class="error">{{error}}</view>
+ <block wx:if="{{guide}}">
+  <view wx:for="{{guide.sections}}" wx:key="title" class="card"><view class="section-title">{{index + 1}} · {{item.title}}</view><view wx:for="{{item.items}}" wx:for-item="tip" wx:key="*this" class="care-item">• {{tip}}</view></view>
+  <view class="card"><view class="section-title">参考资料</view><view wx:for="{{guide.sources}}" wx:key="url" class="link source-link" data-index="{{index}}" bindtap="source">{{item.title}} · 复制链接</view></view>
+  <button class="primary spaced" bindtap="call">咨询琴行 · 养护与维修</button><button class="secondary spaced" bindtap="all">查看其他乐器</button>
+ </block>
+ <view wx:else class="guide-grid"><view wx:for="{{guides}}" wx:key="categoryId" class="guide-option" data-id="{{item.categoryId}}" bindtap="choose"><view class="section-title">{{item.title}}</view><view class="muted spaced">清洁 · 存放 · 日常养护 ›</view></view></view>
+</view>
